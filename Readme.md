@@ -23,10 +23,8 @@ Transaction List
 ```
 
 
-[![test](https://github.com/samrezikram/React-Native-OnBoarding/blob/master/Common/simpleWallet.gif)](https://www.linkedin.com/in/samrezikram/)
-
 
 * ### Improvements:
-[ ] Add Loading indicator using lottie.
-[ ] Improve error handling
-[ ] Add CI/CD and workflows
+- [] Add Loading indicator using lottie.
+- [] Improve error handling.
+- [] Add CI/CD and workflows.
