@@ -92,7 +92,7 @@ class AmazonTransactionDetailScreenComponent extends React.Component<ITransactio
       <Layout level="1" style={styles.container}>
         {/* Navigation Bar */}
         <NavigationBar
-         title={`${moment.utc(this.props.transaction.amount).local().format('YYYY-MM-DD HH:MM A')}`}
+         title={`${moment.utc(this.props.transaction.date).local().format('YYYY-MM-DD HH:MM A')}`}
          renderBackButton={true}
          onBackButtonPress={this.goBack}/>
 
