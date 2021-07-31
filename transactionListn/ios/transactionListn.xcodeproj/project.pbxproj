@@ -11,8 +11,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		6B4C7F5B40E86F7E344DE8C5 /* libPods-transactionListn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFBABF302D141ED6B74F77A /* libPods-transactionListn.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		AB5BCD6426B4A2CA00CAF006 /* libswiftWebKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5BCD6326B4A2CA00CAF006 /* libswiftWebKit.tbd */; };
+		BFE68D8BC22D9615A73F39C2 /* libPods-transactionListn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFBABF302D141ED6B74F77A /* libPods-transactionListn.a */; };
 		CDE13A87CB5B7A815DE66CD1 /* libPods-transactionListn-transactionListnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D2026B52B792FCD289C828 /* libPods-transactionListn-transactionListnTests.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		8AFBABF302D141ED6B74F77A /* libPods-transactionListn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-transactionListn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91463EC9934A1720042D019C /* Pods-transactionListn-transactionListnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-transactionListn-transactionListnTests.release.xcconfig"; path = "Target Support Files/Pods-transactionListn-transactionListnTests/Pods-transactionListn-transactionListnTests.release.xcconfig"; sourceTree = "<group>"; };
 		96D2026B52B792FCD289C828 /* libPods-transactionListn-transactionListnTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-transactionListn-transactionListnTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB5BCD6326B4A2CA00CAF006 /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
 		B88CB0E29534F5F67E7262C1 /* Pods-transactionListn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-transactionListn.release.xcconfig"; path = "Target Support Files/Pods-transactionListn/Pods-transactionListn.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EE5B1A9226594873D81FD19D /* Pods-transactionListn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-transactionListn.debug.xcconfig"; path = "Target Support Files/Pods-transactionListn/Pods-transactionListn.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,7 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B4C7F5B40E86F7E344DE8C5 /* libPods-transactionListn.a in Frameworks */,
+				AB5BCD6426B4A2CA00CAF006 /* libswiftWebKit.tbd in Frameworks */,
+				BFE68D8BC22D9615A73F39C2 /* libPods-transactionListn.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +102,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB5BCD6326B4A2CA00CAF006 /* libswiftWebKit.tbd */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				8AFBABF302D141ED6B74F77A /* libPods-transactionListn.a */,
 				96D2026B52B792FCD289C828 /* libPods-transactionListn-transactionListnTests.a */,
@@ -114,7 +118,6 @@
 				71DBB3355EAB7FDC4126B43F /* Pods-transactionListn-transactionListnTests.debug.xcconfig */,
 				91463EC9934A1720042D019C /* Pods-transactionListn-transactionListnTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -486,10 +489,15 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = transactionListn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -511,10 +519,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = transactionListn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

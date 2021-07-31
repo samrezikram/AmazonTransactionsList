@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">transactionListn</string>
+        <string name="transaction_list">Transaction List</string>
+
 </resources>
