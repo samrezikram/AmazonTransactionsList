@@ -16,7 +16,7 @@ export function getInitialAppState(): IAppState  {
             startDate: '',
             endDAte: '',
             offset: 0,
-            page: 20,
+            limit: 20,
         } as IAmazonTransactionRequest,
         transactionLoadingError: '',
     };
