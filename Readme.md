@@ -6,8 +6,6 @@ Transaction List
 
 ## Installation Android:
 
-Install the dependencies
-
 ```sh
 1- git clone https://github.com/samrezikram/AmazonTransactionsList.git
 1- cd AmazonTransactionsList/transactionListn/
@@ -24,7 +22,11 @@ Install the dependencies
 3- cd .. && react-native run-ios --simulator="iPhone 12 mini"
 ```
 
+
 [![test](https://github.com/samrezikram/React-Native-OnBoarding/blob/master/Common/simpleWallet.gif)](https://www.linkedin.com/in/samrezikram/)
 
 
 * ### Improvements:
+[ ] Add Loading indicator using lottie.
+[ ] Improve error handling
+[ ] Add CI/CD and workflows
