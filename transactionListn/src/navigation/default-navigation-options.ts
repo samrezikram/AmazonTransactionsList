@@ -1,12 +1,16 @@
 import { Platform } from 'react-native';
 import { Navigation, Options } from 'react-native-navigation';
 
+import { ThemeName } from '@enums/theme-name.enum';
+import { Themes } from '@themes/index';
+import { INavigationHistory, INavigationHistoryItem } from '@models/navigation-history.model';
+import { Navigator } from './navigator';
 
 import _ from 'lodash';
 
 const platformIsAndroid: boolean = Platform.OS == 'android';
 
-let defaultNavigationOptions: Options = {
+const defaultNavigationOptions: Options = {
   statusBar: {
     drawBehind: false,
     visible: true,
@@ -21,10 +25,31 @@ let defaultNavigationOptions: Options = {
     backgroundColor: '#FFFFFF',
     componentBackgroundColor: 'transparent',
     orientation: ['portrait'],
-    direction: 'ltr'
   },
   modal: {
     swipeToDismiss: false
+  },
+  animations: {
+    push: {
+      enabled: true,
+      content: {
+        x: {
+          from: 2000,
+          to: 0,
+          duration: 200,
+        }
+      }
+    },
+    pop: {
+      enabled: true,
+      content: {
+        x: {
+          from: 0,
+          to: 2000,
+          duration: 200,
+        }
+      }
+    }
   }
 };
 // -------------------------
@@ -38,4 +63,36 @@ export function setDefaultNavigationOptions(): void {
   Navigation.setDefaultOptions(defaultNavigationOptions);
 }
 // -------------------------
+
+export function setDefaultNavigationOptionsPerTheme(themeName: ThemeName): void {
+  const defaultOptions: Options = getDefaultNavigationOptions();
+  const themePropForBackground: string = themeName == ThemeName.Light ? 'color-basic-100' : 'color-basic-800';
+  const themePropForStatusBar: string = themeName == ThemeName.Light ? 'color-basic-100' : 'color-basic-900';
+  const newOptions: Options = {
+    statusBar: {
+      ...defaultOptions.statusBar,
+      style: platformIsAndroid ? (themeName == ThemeName.Light ? 'dark' : 'light') : undefined,
+      backgroundColor: Themes[themeName][themePropForStatusBar]
+    },
+    topBar: {
+      ...defaultOptions.topBar
+    },
+    layout: {
+      ...defaultOptions.layout,
+      backgroundColor: Themes[themeName][themePropForBackground]
+    },
+    modal: {
+      ...defaultOptions.modal
+    }
+  };
+  Navigation.setDefaultOptions(newOptions);
+  if (platformIsAndroid) { // Android have problem updating status bar colors using StatusBar component, so it's omitted from themeHoc, and updated only here
+    try {
+      const navigationHistory: INavigationHistory = Navigator.getNavigationHistory();
+      _.each(navigationHistory.stack, (item: INavigationHistoryItem) => {
+        Navigation.mergeOptions(item.id, newOptions);
+      });
+    } catch (e) {}
+  }
+}
 // -----------------------------------------------------------------------------------------------------

@@ -25,6 +25,13 @@ export class Navigator {
 
   private static overlaysAllowed: boolean = true;
 
+   // Expose Navigation History ----------------------------------------------------------------------
+   public static getNavigationHistory(): INavigationHistory {
+    return _.cloneDeep(Navigator.navigationHistory || {} as INavigationHistory);
+  }
+  // ------------------------------------------------------------------------------------------------
+
+
   // Initializing Global Subscriptions --------------------------------------------------------------
   public static init(): void {
     if (!Navigator.screenPoppedListener) {

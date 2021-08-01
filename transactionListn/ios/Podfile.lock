@@ -339,6 +339,8 @@ PODS:
     - React-RCTText
   - RNCAsyncStorage (1.12.1):
     - React-Core
+  - RNDeviceInfo (8.1.5):
+    - React-Core
   - RNGestureHandler (1.10.3):
     - React-Core
   - RNSVG (12.1.1):
@@ -406,6 +408,7 @@ DEPENDENCIES:
   - ReactNativeDarkMode (from `../node_modules/react-native-dark-mode`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -497,6 +500,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-navigation"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNSVG:
@@ -511,7 +516,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   FBLazyVector: e686045572151edef46010a6f819ade377dfeb4b
-  FBReactNativeSpec: 44fcf30495088c7370e27a799e9273290775931d
+  FBReactNativeSpec: 023655f820226053eb7fe2e5418922a6dfdf2bf1
   Flipper: d3da1aa199aad94455ae725e9f3aa43f3ec17021
   Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
   Flipper-Folly: 755929a4f851b2fb2c347d533a23f191b008554c
@@ -553,6 +558,7 @@ SPEC CHECKSUMS:
   ReactNativeDarkMode: 0178ffca3b10f6a7c9f49d6f9810232b328fa949
   ReactNativeNavigation: 93712ba3b8d066da5db972bf4fda8ba11811d4da
   RNCAsyncStorage: b03032fdbdb725bea0bd9e5ec5a7272865ae7398
+  RNDeviceInfo: b7b76016bf0d89c0446365dde551273195e0f525
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4

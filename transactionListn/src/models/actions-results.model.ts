@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { GlobalActionsTypes, AppActionsTypes, ThemesActionsTypes } from '@enums/actions-types.enum';
 import { IAppState, IThemeState } from './app/global-state.model';
 import { ITransactionJSON, ITransaction } from './app/transaction-json.model';
+import { ThemeName } from '@enums/theme-name.enum';
 
 
 // Global ------------------------------------------------------------------------------------------------------
@@ -29,6 +30,21 @@ export interface IAmazonTransactionSagaTriggerObject extends ISagaTriggerObject 
     offset?: number;
   }
 }
+
+// Themes ------------------------------------------------------------------------------------------------------
+// Actions ---------------
+export interface IThemeActionResult {
+  type: ThemesActionsTypes;
+  payload: IThemeState;
+}
+
+// Sagas -----------------
+export interface ISetThemeSagaTriggerObject extends ISagaTriggerObject {
+  payload: {
+    themeName: ThemeName;
+  }
+}
+// ------
 
 export interface ITransactionGroup {
   date: string;

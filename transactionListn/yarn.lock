@@ -5955,6 +5955,11 @@ react-native-dark-mode@^0.2.2:
     events "^3.0.0"
     toolkit.ts "^0.0.2"
 
+react-native-device-info@^8.1.5:
+  version "8.1.5"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-8.1.5.tgz#6ee3fe919b66675a1938b4d13c740de7868be308"
+  integrity sha512-w92x+FGIZdzEmU4SN+Zr+0zESubKb+zWRmHFECr0l+AtQlOZZ6AvO9WNwe2RBGpPkOUf54d7k8D0YgGvnRGIdQ==
+
 react-native-gesture-handler@^1.6.0:
   version "1.10.3"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.10.3.tgz#942bbf2963bbf49fa79593600ee9d7b5dab3cfc0"

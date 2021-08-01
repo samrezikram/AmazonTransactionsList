@@ -45,7 +45,7 @@ class AmazonTransactionDetailScreenComponent extends React.Component<ITransactio
   @autobind
   private renderRow(): React.ReactElement {
     return (
-        <Layout level="2" style={[styles.transactionItemsContainer, {borderColor: this.props.themedStyle?.layoutLevel3?.color || 'none'}]}>
+        <Layout level="2" style={[styles.transactionItemsContainer, {borderColor: this.props.themedStyle?.layoutLevel3?.backgroundColor || 'none'}]}>
           <View style={{paddingVertical: 10}}>
             <View style={styles.item}>
               <Text style={{fontSize: 11, fontWeight: '300'}}>Transaction ID</Text>
@@ -55,7 +55,7 @@ class AmazonTransactionDetailScreenComponent extends React.Component<ITransactio
 
             <View style={styles.item}>
                 <Text style={{fontSize: 11, fontWeight: '300'}}>Transaction Type</Text>
-                <Text style={{fontSize: 11}}>{this.props.transaction.type}</Text>
+                <Text style={[{fontSize: 11}, {color: (this.props.transaction.type === 'DEBIT' ? this.props.themedStyle?.dangerColor?.color : this.props.themedStyle?.successColor?.color) || 'rgba(0, 0, 0, 0)'}]}>{this.props.transaction.type}</Text>
             </View>
             <View style={styles.separator}/>
 
@@ -97,7 +97,7 @@ class AmazonTransactionDetailScreenComponent extends React.Component<ITransactio
          onBackButtonPress={this.goBack}/>
 
 
-        <View style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: this.props.themedStyle?.bankIconContainer.backgroundColor, height: 200, width: Dimensions.get('window').width}}>
+        <View style={{ marginHorizontal: 4, alignItems: 'center', justifyContent: 'center', backgroundColor: this.props.themedStyle?.bankIconContainer.backgroundColor, height: 200, width: Dimensions.get('window').width - 8}}>
           {/* Bank Icon */}
           <View style={[styles.bankICon]}>
             <MaterialCommunityIcons
@@ -108,7 +108,7 @@ class AmazonTransactionDetailScreenComponent extends React.Component<ITransactio
           {
             this.props.transaction.type === 'DEBIT' ?
             (<Text category="p2" style={styles.paymentType}>
-                {`${this.props.transaction.counterparty.firstName} has received ${this.props.transaction.amount} ${this.props.transaction.currency} \nfrom you`}
+                {`${this.props.transaction.counterparty.firstName} has received ${this.props.transaction.amount > 0 ? this.props.transaction.amount : -1 * this.props.transaction.amount} ${this.props.transaction.currency} \nfrom you`}
             </Text>)
             :
           (
@@ -194,16 +194,16 @@ function mapDispatchToProps(dispatch: Dispatch<any>): any {
 const TransactionDetailScreenConnected = connect(mapStateToProps, mapDispatchToProps)(AmazonTransactionDetailScreenComponent);
 
 export const TransactionDetailScreen = withStyles(TransactionDetailScreenConnected, (theme: ThemeType) => ({
-  selectedTabHighlighter: {
-    backgroundColor: theme['color-primary-500']
-  },
-  layoutLevel2: {
-    backgroundColor: theme['background-basic-color-2'],
-  },
   layoutLevel3: {
     backgroundColor: theme['background-basic-color-3'],
   },
   bankIconContainer: {
-    backgroundColor: theme['color-basic-400']
+    backgroundColor: theme['background-basic-color-4']
+  },
+  dangerColor: {
+    color: theme['color-danger-500'],
+  },
+  successColor: {
+    color: theme['color-success-500']
   }
 }));
