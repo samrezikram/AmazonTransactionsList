@@ -20,6 +20,7 @@ Transaction List
 1- cd AmazonTransactionsList/transactionListn/
 2- yarn && cd iOS && pod install
 3- cd .. && react-native run-ios --simulator="iPhone 12 mini"
+4- react-native start
 ```
 
 
