@@ -28,3 +28,6 @@ Transaction List
 - [] Add Loading indicator using lottie.
 - [] Improve error handling.
 - [] Add CI/CD and workflows.
+- [] Unit Test and integration Test.
+- [] Convert Class component to FC and use hooks.
+
